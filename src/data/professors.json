@@ -1,0 +1,20 @@
+[
+  {
+    "id": 101,
+    "name": "Dr. Ramesh Iyer",
+    "email": "ramesh.iyer@vit.ac.in",
+    "department": "CSE",
+    "school": "SCOPE",
+    "cabin": "SJT 411",
+    "expertise": ["Machine Learning", "Data Mining", "AI"]
+  },
+  {
+    "id": 102,
+    "name": "Dr. Kavita Menon",
+    "email": "kavita.menon@vit.ac.in",
+    "department": "ECE",
+    "school": "SENSE",
+    "cabin": "TT 204",
+    "expertise": ["VLSI Design", "Embedded Systems", "IoT"]
+  }
+]

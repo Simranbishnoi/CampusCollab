@@ -1,0 +1,10 @@
+[
+  {
+    "id": 201,
+    "name": "Siddarth Das",
+    "email": "siddarth.das@vit.ac.in",
+    "expertise": ["Quantum Computing", "Cryptography"],
+    "lab": "SJT Lab 3",
+    "school": "SCOPE"
+  }
+]

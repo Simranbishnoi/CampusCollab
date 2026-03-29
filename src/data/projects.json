@@ -1,0 +1,11 @@
+[
+  {
+    "projectId": 1001,
+    "title": "AI Based Disease Prediction Model",
+    "description": "Looking for frontend devs to build the UI for the prediction model.",
+    "facultyInCharge": "Dr. Ramesh Iyer",
+    "tags": ["AI", "Healthcare", "React"],
+    "status": "Open",
+    "vacancies": 2
+  }
+]

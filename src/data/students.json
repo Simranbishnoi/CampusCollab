@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Arjun Kumar",
+    "regNo": "20BCE1001",
+    "email": "arjun.kumar2020@vitstudent.ac.in",
+    "branch": "CSE"
+  },
+  {
+    "id": 2,
+    "name": "Neha Sharma",
+    "regNo": "21BME2345",
+    "email": "neha.sharma2021@vitstudent.ac.in",
+    "branch": "Mechanical"
+  }
+]
