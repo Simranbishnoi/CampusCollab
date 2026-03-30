@@ -1,20 +1,58 @@
-[
-  {
-    "id": 101,
-    "name": "Dr. Ramesh Iyer",
-    "email": "ramesh.iyer@vit.ac.in",
-    "department": "CSE",
-    "school": "SCOPE",
-    "cabin": "SJT 411",
-    "expertise": ["Machine Learning", "Data Mining", "AI"]
-  },
-  {
-    "id": 102,
-    "name": "Dr. Kavita Menon",
-    "email": "kavita.menon@vit.ac.in",
-    "department": "ECE",
-    "school": "SENSE",
-    "cabin": "TT 204",
-    "expertise": ["VLSI Design", "Embedded Systems", "IoT"]
-  }
-]
+{
+  "professors": [
+    {
+      "id": "p1",
+      "name": "Dr. Ananya Sharma",
+      "department": "CSE",
+      "school": "SCOPE",
+      "cabin": "SJT 410",
+      "email": "ananya.sharma@vit.ac.in",
+      "expertise": ["Machine Learning", "Data Structures", "Big Data"]
+    },
+    {
+      "id": "p2",
+      "name": "Dr. Ramesh Kumar",
+      "department": "CSE",
+      "school": "SCOPE",
+      "cabin": "SJT 512",
+      "email": "ramesh.kumar@vit.ac.in",
+      "expertise": ["Cybersecurity", "Blockchain", "Cryptography"]
+    },
+    {
+      "id": "p3",
+      "name": "Dr. Sarah Mitchell",
+      "department": "ECE",
+      "school": "SENSE",
+      "cabin": "SMV 201",
+      "email": "sarah.mitchell@vit.ac.in",
+      "expertise": ["IoT", "Embedded Systems", "Robotics"]
+    },
+    {
+      "id": "p4",
+      "name": "Dr. Vikram Singh",
+      "department": "Mechanical",
+      "school": "SMEC",
+      "cabin": "MB 105",
+      "email": "vikram.singh@vit.ac.in",
+      "expertise": ["Aerodynamics", "Fluid Mechanics", "AutoCAD"]
+    },
+    {
+      "id": "p5",
+      "name": "Dr. Priya Patel",
+      "department": "CSE",
+      "school": "SCOPE",
+      "cabin": "SJT 602",
+      "email": "priya.patel@vit.ac.in",
+      "expertise": ["Cloud Computing", "Distributed Systems"]
+    },
+    {
+      "id": "p6",
+      "name": "Dr. Rajesh Iyer",
+      "department": "Chemical",
+      "school": "SCHEME",
+      "cabin": "CB 304",
+      "email": "rajesh.iyer@vit.ac.in",
+      "expertise": ["Nanotechnology", "Polymers", "Reaction Engineering"]
+    }
+  ]
+}

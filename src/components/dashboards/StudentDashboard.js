@@ -1,29 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useActivity } from '../../context/ActivityContext';
 import { FaProjectDiagram, FaMicroscope, FaTrophy, FaHistory } from 'react-icons/fa';
 import './Dashboard.css';
 
 const StudentDashboard = () => {
   const { user } = useAuth();
-  
-  // Dummy activity data for MVP Phase 4 visual testing
-  const recentActivities = [
-    {
-      id: 1,
-      title: "Collaboration Request sent to Dr. Smith",
-      description: "Machine Learning applied to IoT sensors",
-      status: "pending",
-      date: "2 hours ago"
-    },
-    {
-      id: 2,
-      title: "Joined 'Winter Hackathon 2026' Team",
-      description: "Team 'Code Brewers' has successfully added you.",
-      status: "approved",
-      date: "1 day ago"
-    }
-  ];
+  const { activities } = useActivity();
 
   return (
     <div className="dashboard-container">
@@ -58,17 +42,22 @@ const StudentDashboard = () => {
       <section className="activity-section">
         <h2><FaHistory style={{ color: '#4facfe' }} /> Recent Activity</h2>
         <div className="activity-list">
-          {recentActivities.map((activity) => (
-            <div key={activity.id} className={`activity-item ${activity.status}`}>
-              <div className="activity-header">
-                <span className="activity-title">{activity.title}</span>
-                <span className={`activity-status status-${activity.status}`}>
-                  {activity.status}
-                </span>
+          {activities.length > 0 ? (
+            activities.map((activity) => (
+              <div key={activity.id} className={`activity-item ${activity.status}`}>
+                <div className="activity-header">
+                  <span className="activity-title">{activity.title}</span>
+                  <span className={`activity-status status-${activity.status}`}>
+                    {activity.status}
+                  </span>
+                </div>
+                <p className="activity-desc">{activity.description}</p>
+                <small style={{ color: '#aaa', fontSize: '0.8rem', marginTop: '5px' }}>{activity.date}</small>
               </div>
-              <p className="activity-desc">{activity.description}</p>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p style={{ color: '#888', fontStyle: 'italic' }}>No recent activity to show.</p>
+          )}
         </div>
       </section>
     </div>

@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 
 // Layout
 import MainLayout from './components/layout/MainLayout';
+import { ActivityProvider } from './context/ActivityContext';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -28,39 +29,41 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          {/* Public Route */}
-          <Route path="/" element={<Login />} />
-          
-          {/* Protected Routes inside Layout */}
-          <Route 
-            path="/dashboard" 
-            element={<ProtectedRoute><Dashboard /></ProtectedRoute>} 
-          />
-          <Route 
-            path="/projects" 
-            element={<ProtectedRoute><Projects /></ProtectedRoute>} 
-          />
-          <Route 
-             path="/research" 
-             element={<ProtectedRoute><Research /></ProtectedRoute>} 
-          />
-          <Route 
-             path="/hackathons" 
-             element={<ProtectedRoute><Hackathons /></ProtectedRoute>} 
-          />
-          <Route 
-             path="/chat" 
-             element={<ProtectedRoute><Chat /></ProtectedRoute>} 
-          />
-          <Route 
-             path="/profile" 
-             element={<ProtectedRoute><Profile /></ProtectedRoute>} 
-          />
+        <ActivityProvider>
+          <Routes>
+            {/* Public Route */}
+            <Route path="/" element={<Login />} />
+            
+            {/* Protected Routes inside Layout */}
+            <Route 
+              path="/dashboard" 
+              element={<ProtectedRoute><Dashboard /></ProtectedRoute>} 
+            />
+            <Route 
+              path="/projects" 
+              element={<ProtectedRoute><Projects /></ProtectedRoute>} 
+            />
+            <Route 
+               path="/research" 
+               element={<ProtectedRoute><Research /></ProtectedRoute>} 
+            />
+            <Route 
+               path="/hackathons" 
+               element={<ProtectedRoute><Hackathons /></ProtectedRoute>} 
+            />
+            <Route 
+               path="/chat" 
+               element={<ProtectedRoute><Chat /></ProtectedRoute>} 
+            />
+            <Route 
+               path="/profile" 
+               element={<ProtectedRoute><Profile /></ProtectedRoute>} 
+            />
 
-          {/* Fallback route */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+            {/* Fallback route */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </ActivityProvider>
       </AuthProvider>
     </Router>
   );
