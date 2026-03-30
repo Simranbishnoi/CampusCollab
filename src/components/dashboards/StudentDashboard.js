@@ -47,9 +47,16 @@ const StudentDashboard = () => {
               <div key={activity.id} className={`activity-item ${activity.status}`}>
                 <div className="activity-header">
                   <span className="activity-title">{activity.title}</span>
-                  <span className={`activity-status status-${activity.status}`}>
-                    {activity.status}
-                  </span>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                    {activity.status === 'approved' && activity.githubLink && (
+                      <a href={activity.githubLink} target="_blank" rel="noreferrer" style={{ color: '#333', textDecoration: 'none', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <i className="fab fa-github" style={{ fontSize: '1.2rem' }}></i> GitHub Repo
+                      </a>
+                    )}
+                    <span className={`activity-status status-${activity.status}`}>
+                      {activity.status}
+                    </span>
+                  </div>
                 </div>
                 <p className="activity-desc">{activity.description}</p>
                 <small style={{ color: '#aaa', fontSize: '0.8rem', marginTop: '5px' }}>{activity.date}</small>

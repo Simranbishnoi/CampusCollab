@@ -12,17 +12,19 @@ export const ActivityProvider = ({ children }) => {
       title: "Joined 'Winter Hackathon 2026' Team",
       description: "Team 'Code Brewers' has successfully added you.",
       status: "approved",
-      date: "1 day ago"
+      date: "1 day ago",
+      githubLink: "https://github.com/vit-student/winter-hackathon"
     }
   ]);
 
-  const addActivity = (title, description, status) => {
+  const addActivity = (title, description, status, githubLink = null) => {
     const newActivity = {
       id: Date.now(),
       title,
       description,
       status,
-      date: "Just now"
+      date: "Just now",
+      githubLink
     };
     // Add new activity to the start of the list
     setActivities(prev => [newActivity, ...prev]);

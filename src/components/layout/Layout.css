@@ -146,3 +146,131 @@
   padding: 30px;
   overflow-y: auto;
 }
+
+/* Notifications Dropdown */
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-btn {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 40px;
+  right: -50px;
+  width: 320px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid #eaeaea;
+}
+
+.notification-header {
+  padding: 15px;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.mark-all-read {
+  background: none;
+  border: none;
+  color: #4facfe;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.notification-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.notification-item:hover {
+  background-color: #f9f9f9;
+}
+
+.notification-item.unread {
+  background-color: #f0f8ff;
+}
+
+.notification-item.unread:hover {
+  background-color: #e6f3ff;
+}
+
+.notification-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.notification-icon.type-approved { background-color: #2ed573; }
+.notification-icon.type-rejected { background-color: #ff4757; }
+.notification-icon.type-pending { background-color: #ffa502; }
+.notification-icon.type-info { background-color: #4facfe; }
+
+.notification-content p {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.notification-content small {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.mark-read-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #4facfe;
+  opacity: 0.5;
+}
+
+.no-notifications {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}

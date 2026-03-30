@@ -14,6 +14,8 @@ import Profile from './pages/Profile';
 // Layout
 import MainLayout from './components/layout/MainLayout';
 import { ActivityProvider } from './context/ActivityContext';
+import { NotificationProvider } from './context/NotificationContext';
+import { ChatProvider } from './context/ChatContext';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -29,8 +31,10 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <ActivityProvider>
-          <Routes>
+        <NotificationProvider>
+          <ActivityProvider>
+            <ChatProvider>
+              <Routes>
             {/* Public Route */}
             <Route path="/" element={<Login />} />
             
@@ -60,10 +64,10 @@ function App() {
                element={<ProtectedRoute><Profile /></ProtectedRoute>} 
             />
 
-            {/* Fallback route */}
-            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </ActivityProvider>
+            </ChatProvider>
+          </ActivityProvider>
+        </NotificationProvider>
       </AuthProvider>
     </Router>
   );
