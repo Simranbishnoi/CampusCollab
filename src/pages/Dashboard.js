@@ -1,20 +1,33 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import StudentDashboard from '../components/dashboards/StudentDashboard';
 
 const Dashboard = () => {
   const { user } = useAuth();
 
-  return (
-    <div className="page-container">
-      <h1>Welcome back, {user?.name}!</h1>
-      <p>This is the {user?.role} dashboard.</p>
-      
-      <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
-        <h3>Overview</h3>
-        <p>Your activity summary will appear here.</p>
-      </div>
-    </div>
-  );
+  // Dynamically render specific dashboards based on the user's role
+  switch (user?.role) {
+    case 'Student':
+      return <StudentDashboard />;
+    case 'Professor':
+      return (
+        <div className="page-container">
+          <h2>🚧 Professor Dashboard (Coming in Phase 11)</h2>
+        </div>
+      );
+    case 'Scholar':
+      return (
+        <div className="page-container">
+          <h2>🚧 Research Scholar Dashboard (Coming in Phase 12)</h2>
+        </div>
+      );
+    default:
+      return (
+        <div className="page-container">
+          <h2>Invalid Role</h2>
+        </div>
+      );
+  }
 };
 
 export default Dashboard;
