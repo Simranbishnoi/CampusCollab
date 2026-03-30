@@ -15,9 +15,7 @@ const Login = () => {
     e.preventDefault();
     const success = login(role, email, name, regNo);
     if (success) {
-      if (role === 'Student') navigate('/student-dashboard');
-      else if (role === 'Professor') navigate('/professor-dashboard');
-      else navigate('/scholar-dashboard');
+      navigate('/dashboard');
     }
   };
 

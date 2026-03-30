@@ -1,24 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+
+// Pages
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Projects from './pages/Projects';
+import Research from './pages/Research';
+import Hackathons from './pages/Hackathons';
+import Chat from './pages/Chat';
+import Profile from './pages/Profile';
 
-// Placeholder Dashboards for Phase 1 verification
-const StudentDashboard = () => <div><h2>Student Dashboard</h2><LogoutButton/></div>;
-const ProfessorDashboard = () => <div><h2>Professor Dashboard</h2><LogoutButton/></div>;
-const ScholarDashboard = () => <div><h2>Research Scholar Dashboard</h2><LogoutButton/></div>;
-
-const LogoutButton = () => {
-  const { logout } = useAuth();
-  return <button onClick={logout} style={{marginTop: '20px', padding: '10px'}}>Logout</button>;
-};
+// Layout
+import MainLayout from './components/layout/MainLayout';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user } = useAuth();
   if (!user) return <Navigate to="/" />;
-  if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/" />;
-  return children;
+  if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/dashboard" />;
+  
+  // Wrap protected routes in the MainLayout wrapper to provide Sidebar & Topbar
+  return <MainLayout>{children}</MainLayout>;
 };
 
 function App() {
@@ -26,25 +29,37 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
+          {/* Public Route */}
           <Route path="/" element={<Login />} />
           
-          <Route path="/student-dashboard" element={
-            <ProtectedRoute allowedRoles={['Student']}>
-               <StudentDashboard />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/professor-dashboard" element={
-            <ProtectedRoute allowedRoles={['Professor']}>
-               <ProfessorDashboard />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/scholar-dashboard" element={
-            <ProtectedRoute allowedRoles={['Scholar']}>
-               <ScholarDashboard />
-            </ProtectedRoute>
-          } />
+          {/* Protected Routes inside Layout */}
+          <Route 
+            path="/dashboard" 
+            element={<ProtectedRoute><Dashboard /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/projects" 
+            element={<ProtectedRoute><Projects /></ProtectedRoute>} 
+          />
+          <Route 
+             path="/research" 
+             element={<ProtectedRoute><Research /></ProtectedRoute>} 
+          />
+          <Route 
+             path="/hackathons" 
+             element={<ProtectedRoute><Hackathons /></ProtectedRoute>} 
+          />
+          <Route 
+             path="/chat" 
+             element={<ProtectedRoute><Chat /></ProtectedRoute>} 
+          />
+          <Route 
+             path="/profile" 
+             element={<ProtectedRoute><Profile /></ProtectedRoute>} 
+          />
+
+          {/* Fallback route */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>
     </Router>
